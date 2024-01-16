@@ -113,9 +113,9 @@ Dokumentacja jest również dostępna [online](https://www.gnu.org/software/core
 Pobierzmy pliki z pomiarami
 
 ```
-    wget https://raw.githubusercontent.com/piona/stacjait-dane-linux/main/00/d1
-    wget https://raw.githubusercontent.com/piona/stacjait-dane-linux/main/00/d2
-    wget https://raw.githubusercontent.com/piona/stacjait-dane-linux/main/00/d3
+    $ wget https://raw.githubusercontent.com/piona/stacjait-dane-linux/main/00/d1
+    $ wget https://raw.githubusercontent.com/piona/stacjait-dane-linux/main/00/d2
+    $ wget https://raw.githubusercontent.com/piona/stacjait-dane-linux/main/00/d3
 ```
 
 Co jest w środku
@@ -187,14 +187,14 @@ Przykładowy `Makefile`
 all : data.png
 data.png : d data.plt
     gnuplot data.plt
-d : d1 d2 d3
-    paste <(seq 100) d1 d2 d3 > d
+d : s d1 d2 d3
+    paste s d1 d2 d3 > d
 ```
 
 Polecenie możemy wołać za pomocą
 
 ```
-    $ make all
+    $ make
 ```
 
 Jeśli dane pomiarowe są nieposortowane lub niekompletne powinniśmy je połączyć
@@ -256,6 +256,12 @@ for key in "$@"
 do
     grep "$key" "$file" | wc -l
 done
+```
+
+Plik ze skryptem musi mieć nadane uprawnienia do wykonywania
+
+```
+    $ chmod a+x ck
 ```
 
 Przykład
@@ -344,8 +350,8 @@ Skorzystamy z danych udostępnionych pod adresem <https://danepubliczne.imgw.pl/
 Automatyczne pobranie interesujących plików
 
 ```
-    wget --accept '20*.zip' --mirror --no-directories --adjust-extension \
-        --convert-links --no-parent \
+    $ wget --accept '20*.zip' --mirror --no-directories \
+        --adjust-extension --convert-links --no-parent \
         https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_meteorologiczne/miesieczne/klimat
 ```
 
@@ -361,14 +367,14 @@ Zdekompresujmy pliki i obejrzyjmy ich zawartość
 Wyciągamy średnią temperaturę dla wybranego miasta
 
 ```
-    grep PSZCZYNA k_m_t* | tr -d '"' | cut -f 3,4,5 -d, | tr "," " " > t
+    $ grep PSZCZYNA k_m_t* | tr -d '"' | cut -f 3,4,5 -d, | tr "," " " > t
 ```
 
 Rysujemy wykres
 
 ```
-    wget https://raw.githubusercontent.com/piona/stacjait-dane-linux/main/03/temp.plt
-    gnuplot -p temp.plt
+    $ wget https://raw.githubusercontent.com/piona/stacjait-dane-linux/main/03/temp.plt
+    $ gnuplot -p temp.plt
 ```
 
 ### Przykład: oceny
