@@ -367,7 +367,7 @@ Wyciągamy średnią temperaturę dla wybranego miasta
 Rysujemy wykres
 
 ```
-    wget https://github.com/piona/stacjait-dane-linux/blob/main/03/temp.plt
+    wget https://raw.githubusercontent.com/piona/stacjait-dane-linux/main/03/temp.plt
     gnuplot -p temp.plt
 ```
 
