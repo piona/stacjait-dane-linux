@@ -113,9 +113,9 @@ Dokumentacja jest również dostępna [online](https://www.gnu.org/software/core
 Pobierzmy pliki z pomiarami
 
 ```
-    wget TODO/d1
-    wget TODO/d2
-    wget TODO/d3
+    wget https://raw.githubusercontent.com/piona/stacjait-dane-linux/main/00/d1
+    wget https://raw.githubusercontent.com/piona/stacjait-dane-linux/main/00/d2
+    wget https://raw.githubusercontent.com/piona/stacjait-dane-linux/main/00/d3
 ```
 
 Co jest w środku
@@ -144,7 +144,8 @@ Jeśli są kłopoty ze znakiem tabulacji można użyć poleceń `expand` i `unex
 Wizualizacja
 
 ```
-    $ wget data.plt
+    $ wget https://raw.githubusercontent.com/piona/stacjait-dane-linux/main/00/data.plt
+    $ gnuplot -p data.plt
 ```
 
 Więcej o Gnuplot
@@ -188,6 +189,12 @@ data.png : d data.plt
     gnuplot data.plt
 d : d1 d2 d3
     paste <(seq 100) d1 d2 d3 > d
+```
+
+Polecenie możemy wołać za pomocą
+
+```
+    $ make all
 ```
 
 Jeśli dane pomiarowe są nieposortowane lub niekompletne powinniśmy je połączyć
@@ -235,7 +242,7 @@ Nie chcemy tego analizować ręcznie
 Wizualizacja
 
 ```
-    $ wget TODO/count.plt
+    $ wget https://raw.githubusercontent.com/piona/stacjait-dane-linux/main/01/count.plt
     $ gnuplot -p count.plt
 ```
 
@@ -265,7 +272,7 @@ wymieszane.
 Pobierzmy pytania
 
 ```
-    $ wget TODO/pytania.txt
+    $ wget https://raw.githubusercontent.com/piona/stacjait-dane-linux/main/02/pytania.txt
 ```
 
 #### Rozwiązanie 1
@@ -360,7 +367,7 @@ Wyciągamy średnią temperaturę dla wybranego miasta
 Rysujemy wykres
 
 ```
-    wget TODO/temp.plt
+    wget https://github.com/piona/stacjait-dane-linux/blob/main/03/temp.plt
     gnuplot -p temp.plt
 ```
 

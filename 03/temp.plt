@@ -21,4 +21,4 @@ set yrange [ -30 : 30 ]
 set autoscale xfix
 
 # plot data
-plot 'd' using 0:3 w lp ls 1
+plot 't' using 0:3 w lp ls 1
