@@ -197,6 +197,13 @@ Polecenie możemy wołać za pomocą
     $ make
 ```
 
+Aby możliwe było używane w `Makefile` poleceń, które wykorzystują możliwości
+powłoki `bash` (domyślnie `make` używa `sh`) należy dodać na jego początku
+
+```
+SHELL:=/bin/bash
+```
+
 Jeśli dane pomiarowe są nieposortowane lub niekompletne powinniśmy je połączyć
 po wspólnym kluczu. Przygotujmy takie dane (sortowanie zazwyczaj rozumiane jest
 jako sortowane tekstowe, spróbujmy bez `-w`)
